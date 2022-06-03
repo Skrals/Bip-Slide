@@ -5,15 +5,20 @@ public class PlayerControl : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     [SerializeField] private Player _playerTemplate;
 
+    [Header("Side borders")]
+    [SerializeField] private Vector3 _left;
+    [SerializeField] private Vector3 _right;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
+
         if (Mathf.Abs(eventData.delta.x) > Mathf.Abs(eventData.delta.y) && !_playerTemplate.LostControl)
         {
-            if (eventData.delta.x > 0)
+            if (eventData.delta.x > 0 && _playerTemplate.transform.position.x <_right.x)
             {
                 _playerTemplate.transform.position += Vector3.right;
             }
-            else
+            else if(eventData.delta.x < 0 && _playerTemplate.transform.position.x > _left.x)
             {
                 _playerTemplate.transform.position += Vector3.left;
             }

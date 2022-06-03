@@ -1219,8 +1219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8cfe8938701494da04b2486532bb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 15
-  _speedDecay: 0.01
+  _speed: 5
+  _speedDecay: 0
   <LostControl>k__BackingField: 0
 --- !u!54 &642507915
 Rigidbody:

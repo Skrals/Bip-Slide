@@ -47,4 +47,6 @@ MonoBehaviour:
   - {fileID: 1936951933341547040, guid: e3024fcc58573054ba132dc5c9cd11e8, type: 3}
   - {fileID: 5082792441792734254, guid: 5096e97877b162d4e88bcb62ae0ffcef, type: 3}
   - {fileID: 7311575558327370918, guid: fc2444f5e3b77564a9ef88b8d71fb61e, type: 3}
-  _groundsAmount: 0
+  _finishTemplate: {fileID: 4134338712506912410, guid: 46d2473599c1a3b46a97382d6dc5f9bc, type: 3}
+  _startTemplate: {fileID: 2399662453226502023, guid: 167eb038f40a1df46abad8b1ee3f2e2e, type: 3}
+  _groundsAmount: 7
