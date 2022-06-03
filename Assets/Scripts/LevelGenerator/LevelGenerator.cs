@@ -30,13 +30,14 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 0; i <= amount; i++)
         {
-            if (i != 0 && i % _bonusSpawnStep == 0)
+            if (_bonusSpawnStep == 0)
             {
                 BonusSpawn(bonusTemplate);
                 _bonusSpawnStep = _random.Next((int)_randomStep.x, (int)_randomStep.y);
             }
 
             GroundSpawn(groundsArray[_random.Next(groundsArray.Length)]);
+            _bonusSpawnStep--;
         }
 
         GroundSpawn(_finishTemplate);

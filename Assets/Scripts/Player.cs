@@ -8,8 +8,13 @@ public class Player : MonoBehaviour
     [field: SerializeField] public bool LostControl { get; private set; }
 
     private Rigidbody _rigidbody;
+    private Animator _animator;
 
-    private void Start() => _rigidbody = GetComponent<Rigidbody>();
+    private void Start() 
+    { 
+        _animator = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody>(); 
+    }
 
     private void FixedUpdate()
     {
@@ -29,6 +34,7 @@ public class Player : MonoBehaviour
         }
 
         transform.position += Vector3.forward * _speed * Time.fixedDeltaTime;
+        _animator.SetFloat("RunSpeed", _speed);
         SpeedDecay();
     }
 
