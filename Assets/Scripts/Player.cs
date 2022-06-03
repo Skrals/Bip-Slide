@@ -5,8 +5,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _speedDecay;
     [SerializeField] private bool _finish;
-
     [field: SerializeField] public bool LostControl { get; private set; }
+
+    private Rigidbody _rigidbody;
+
+    private void Start() => _rigidbody = GetComponent<Rigidbody>();
 
     private void FixedUpdate()
     {
@@ -15,12 +18,12 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if(_speed<=0 && !LostControl)
+        if (_speed <= 0 && !LostControl)
         {
             LostControl = true;
         }
-        
-        if(LostControl)
+
+        if (LostControl)
         {
             return;
         }
@@ -29,7 +32,7 @@ public class Player : MonoBehaviour
         SpeedDecay();
     }
 
-    private void SpeedDecay ()
+    private void SpeedDecay()
     {
         if (_speed > 0)
         {
@@ -39,7 +42,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.TryGetComponent(out Ground ground))
+        if (other.gameObject.TryGetComponent(out Ground ground))
         {
             _speedDecay = ground.DecayParameter;
         }
@@ -47,6 +50,12 @@ public class Player : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Finish finish))
         {
             Finish();
+        }
+
+        if (other.gameObject.TryGetComponent(out Bonus bonus))
+        {
+            _rigidbody.AddForce(new Vector3(0, 0, bonus.Acceleration), ForceMode.Impulse);
+            _speed += bonus.Acceleration / 2;
         }
     }
 
