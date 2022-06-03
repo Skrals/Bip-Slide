@@ -30,9 +30,4 @@ public class Player : MonoBehaviour
             _speed -= _speedDecay;
         }
     }
-
-    public void SpeedDecayChander(float decay)
-    {
-        _speedDecay = decay;
-    }
 }
