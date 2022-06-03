@@ -1161,7 +1161,9 @@ GameObject:
   - component: {fileID: 3526596730789388603}
   - component: {fileID: 7354608943877634881}
   - component: {fileID: 4304084060515416960}
-  - component: {fileID: 744281222776938680}
+  - component: {fileID: 642507915}
+  - component: {fileID: 642507914}
+  - component: {fileID: 4890370247792081503}
   m_Layer: 0
   m_Name: xbot
   m_TagString: Untagged
@@ -1218,8 +1220,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 15
-  _speedDecay: 0.1
---- !u!65 &744281222776938680
+  _speedDecay: 0.01
+  <LostControl>k__BackingField: 0
+--- !u!54 &642507915
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4304084060515416961}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &642507914
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1230,8 +1249,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6145423, z: 1}
-  m_Center: {x: 0, y: -0.19272885, z: 0}
+  m_Size: {x: 1, y: 0.7233262, z: 1}
+  m_Center: {x: 0, y: -0.14187984, z: 0}
+--- !u!65 &4890370247792081503
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4304084060515416961}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.38984385, y: 1.8198425, z: 0.4194833}
+  m_Center: {x: 0.011940375, y: 0.92125255, z: 0.03532785}
 --- !u!1 &4821239936619646531
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,4 +30,12 @@ public class Player : MonoBehaviour
             _speed -= _speedDecay;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.TryGetComponent(out Ground ground))
+        {
+            _speedDecay = ground.DecayParameter;
+        }
+    }
 }
