@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3239763625406471340}
   - component: {fileID: 3239763625406471347}
   - component: {fileID: 3239763625406471346}
-  - component: {fileID: 3239763625406471342}
+  - component: {fileID: 7311575558327370918}
   m_Layer: 0
   m_Name: Sand
   m_TagString: Untagged
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3239763625406471342
+--- !u!114 &7311575558327370918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3239763625406471345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aaaa1668f0360a4f8aa11becdc0de62, type: 3}
+  m_Script: {fileID: 11500000, guid: 32706b8c2fb77fb418cd478186db6d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <DecayParameter>k__BackingField: 0.05
