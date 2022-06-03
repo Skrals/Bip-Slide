@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (Mathf.Abs(eventData.delta.x) > Mathf.Abs(eventData.delta.y))
+        if (Mathf.Abs(eventData.delta.x) > Mathf.Abs(eventData.delta.y) && !_playerTemplate.LostControl)
         {
             if (eventData.delta.x > 0)
             {
