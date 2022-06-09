@@ -1,32 +1,24 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerControl : MonoBehaviour, IBeginDragHandler, IDragHandler
+public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private Player _playerTemplate;
+    [SerializeField] private float _sensitivity;
 
-    [Header("Side borders")]
-    [SerializeField] private Vector3 _left;
-    [SerializeField] private Vector3 _right;
-
-    public void OnBeginDrag(PointerEventData eventData)
+    private void Update()
     {
-
-        if (Mathf.Abs(eventData.delta.x) > Mathf.Abs(eventData.delta.y) && !_playerTemplate.LostControl)
+        if (Input.touches.Length > 0)
         {
-            if (eventData.delta.x > 0 && _playerTemplate.transform.position.x <_right.x)
+            if (Input.touches[0].phase == TouchPhase.Moved && !_playerTemplate.LostControl && !_playerTemplate.IsFinish)
             {
-                _playerTemplate.transform.position += Vector3.right;
-            }
-            else if(eventData.delta.x < 0 && _playerTemplate.transform.position.x > _left.x)
-            {
-                _playerTemplate.transform.position += Vector3.left;
+                Vector2 delta = Input.touches[0].deltaPosition;
+
+                _playerTemplate.transform.position += new Vector3(delta.x, 0, 0) * Time.deltaTime * _sensitivity;
             }
         }
     }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-
-    }
 }
+
+
+

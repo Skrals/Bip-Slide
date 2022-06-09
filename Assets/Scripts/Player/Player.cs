@@ -1,24 +1,27 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _speedDecay;
-    [SerializeField] private bool _finish;
+    [field: SerializeField] public bool IsFinish { get; private set; }
     [field: SerializeField] public bool LostControl { get; private set; }
 
-    private Rigidbody _rigidbody;
-    private Animator _animator;
+    public event UnityAction<Collider> _collision;
 
-    private void Start() 
-    { 
-        _animator = GetComponent<Animator>();
-        _rigidbody = GetComponent<Rigidbody>(); 
+    private Rigidbody _rigidbody;
+    //private Animator _animator;
+
+    private void Start()
+    {
+        //_animator = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
-        if (_finish)
+        if (IsFinish)
         {
             return;
         }
@@ -34,7 +37,7 @@ public class Player : MonoBehaviour
         }
 
         transform.position += Vector3.forward * _speed * Time.fixedDeltaTime;
-        _animator.SetFloat("RunSpeed", _speed);
+        //_animator.SetFloat("RunSpeed", _speed);
         SpeedDecay();
     }
 
@@ -48,9 +51,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.TryGetComponent(out Ground ground))
         {
             _speedDecay = ground.DecayParameter;
+            _collision?.Invoke(other);
         }
 
         if (other.gameObject.TryGetComponent(out Finish finish))
@@ -67,7 +72,7 @@ public class Player : MonoBehaviour
 
     private void Finish()
     {
-        _finish = true;
+        IsFinish = true;
         Debug.Log($"Finish");
     }
 }

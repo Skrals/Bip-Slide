@@ -2,5 +2,6 @@ using UnityEngine;
 
 public abstract class Ground : MonoBehaviour
 {
-   [field: SerializeField] public float DecayParameter { get; private set; }
+    [SerializeField] private PrizePoint _prizePoint;
+    [field: SerializeField] public float DecayParameter { get; private set; }
 }
