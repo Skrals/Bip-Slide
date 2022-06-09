@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speedDecay;
 
     [SerializeField] private float _leftBorder;
-    [SerializeField] private float _rightBorder;    
+    [SerializeField] private float _rightBorder;
+
+    [SerializeField] private PlayerControl _control;
 
     [field: SerializeField] public bool IsFinish { get; private set; }
     [field: SerializeField] public bool LostControl { get; private set; }
@@ -18,12 +20,13 @@ public class Player : MonoBehaviour
     private void Start()
     {
         //_animator = GetComponent<Animator>();
+        _control = GetComponent<PlayerControl>();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
-        if (IsFinish)
+        if (IsFinish || !_control.StartGame)
         {
             return;
         }
@@ -50,7 +53,6 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(_leftBorder, transform.position.y, transform.position.z);
         }
 
-        //_animator.SetFloat("RunSpeed", _speed);
         SpeedDecay();
     }
 

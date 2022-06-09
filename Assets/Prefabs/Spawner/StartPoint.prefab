@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd77d0e42c044fb489a0ac7fc4bbc958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundsAmount: 20
+  _groundsAmount: 10
   _groundsTemplates:
   - {fileID: 1936951933341547040, guid: e3024fcc58573054ba132dc5c9cd11e8, type: 3}
   - {fileID: 5082792441792734254, guid: 5096e97877b162d4e88bcb62ae0ffcef, type: 3}
@@ -188,5 +188,5 @@ MonoBehaviour:
   _startTemplate: {fileID: 2399662453226502023, guid: 167eb038f40a1df46abad8b1ee3f2e2e, type: 3}
   bonusTemplate: {fileID: 4870298909253806394, guid: 78e1348972641904dbc7f783643bc02d, type: 3}
   _bonusPoints: []
-  _randomStep: {x: 5, y: 10}
+  _randomStep: {x: 3, y: 10}
   _bonusSpawnStep: 3

@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 3662809001064965439}
   - component: {fileID: 8145600730726038507}
   - component: {fileID: 3662809001064965438}
+  - component: {fileID: 1980067935}
   m_Layer: 0
   m_Name: slide bot
   m_TagString: Untagged
@@ -155,6 +156,7 @@ MonoBehaviour:
   _speedDecay: 0
   _leftBorder: -1.5
   _rightBorder: 1.5
+  _control: {fileID: 0}
   <IsFinish>k__BackingField: 0
   <LostControl>k__BackingField: 0
 --- !u!114 &8089825966634519610
@@ -171,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTemplate: {fileID: 679978429020273204}
   _sensitivity: 0.1
+  <StartGame>k__BackingField: 0
 --- !u!114 &-1089946815937405660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +230,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.49181092, y: 0.5063017, z: 1.9288219}
   m_Center: {x: 0, y: 0, z: -0.13293499}
+--- !u!95 &1980067935
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679978429020273205}
+  m_Enabled: 0
+  m_Avatar: {fileID: 9000000, guid: 37df5df674bbe8e468c63d2d97e63a38, type: 3}
+  m_Controller: {fileID: 9100000, guid: f8e0f4278be225e46903851cabc03aa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &768898969895934318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1209,7 @@ MonoBehaviour:
   _end: {fileID: 409454928320831365}
   _step: 0.01
   _progress: 0
+  _control: {fileID: 8089825966634519610}
 --- !u!1 &3703015298588545583
 GameObject:
   m_ObjectHideFlags: 0

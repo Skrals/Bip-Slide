@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class CameraMovePosition : MonoBehaviour
 {
@@ -9,6 +8,8 @@ public class CameraMovePosition : MonoBehaviour
     [SerializeField] private float _step;
     [SerializeField] private float _progress;
 
+    [SerializeField] private PlayerControl _control;
+
     private void Start()
     {
         transform.position = _start.gameObject.transform.position;
@@ -16,6 +17,11 @@ public class CameraMovePosition : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!_control.StartGame)
+        {
+            return;
+        }
+
         CameraMove();
     }
 
