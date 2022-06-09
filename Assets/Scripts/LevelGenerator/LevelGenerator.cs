@@ -37,6 +37,7 @@ public class LevelGenerator : MonoBehaviour
             }
 
             GroundSpawn(groundsArray[_random.Next(groundsArray.Length)]);
+
             _bonusSpawnStep--;
         }
 

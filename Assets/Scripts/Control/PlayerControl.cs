@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -19,6 +18,3 @@ public class PlayerControl : MonoBehaviour
         }
     }
 }
-
-
-

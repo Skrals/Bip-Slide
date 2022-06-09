@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 20
   _speedDecay: 0
+  _leftBorder: -1.5
+  _rightBorder: 1.5
   <IsFinish>k__BackingField: 0
   <LostControl>k__BackingField: 0
 --- !u!114 &8089825966634519610
@@ -183,7 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Coins>k__BackingField: 0
   _player: {fileID: 679978429020273204}
-  _coinsView: {fileID: 0}
 --- !u!54 &3662809001064965439
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PrizePoint : MonoBehaviour
 {
     [SerializeField] private Prize[] _prizes;
+    [field: SerializeField] public bool Collected { get; set; }
 
     private void Start()
     {

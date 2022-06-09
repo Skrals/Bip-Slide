@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prizePoint: {fileID: 0}
   <DecayParameter>k__BackingField: 0.02
+  <BonusCoins>k__BackingField: 15
 --- !u!1001 &1946159368385020043
 PrefabInstance:
   m_ObjectHideFlags: 0

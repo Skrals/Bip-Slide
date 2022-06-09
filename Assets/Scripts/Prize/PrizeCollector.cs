@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PrizeCollector : MonoBehaviour
@@ -6,23 +5,28 @@ public class PrizeCollector : MonoBehaviour
     [field: SerializeField] public int Coins { get; private set; }
     [SerializeField] private Player _player;
 
-    private void OnEnable() => _player._collision += PickPrize;
-
-    private void OnDisable() => _player._collision -= PickPrize;
-
-    private void PickPrize(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
-        try
+        if (other.gameObject.TryGetComponent(out PrizePoint prizePoint))
         {
-            var prize = collider.GetComponentInChildren<Prize>();
-
-            Coins += prize.Reward;
-
-            Destroy(prize.gameObject);
+            if (!prizePoint.Collected)
+            {
+                Coins += prizePoint.GetComponentInChildren<Prize>().Reward;
+                Destroy(prizePoint.gameObject);
+                prizePoint.Collected = true;
+            }
         }
-        catch (NullReferenceException exception)
-        { 
-            Debug.LogError(exception.Message);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out Ground ground))
+        {
+            if(!ground.Collected)
+            {
+                Coins += ground.BonusCoins;
+                ground.Collected = true;
+            }
         }
     }
 }

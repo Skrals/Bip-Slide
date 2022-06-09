@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8111316439812223826}
   - component: {fileID: 2618105647054752564}
+  - component: {fileID: 515996851640432709}
   m_Layer: 0
   m_Name: PrizePoint
   m_TagString: Untagged
@@ -47,3 +48,18 @@ MonoBehaviour:
   _prizes:
   - {fileID: 409580952694636301, guid: bef7da09ed2f5ff47945d46dd7af9e94, type: 3}
   - {fileID: 3464176927773821957, guid: 37b1801c5da750f4a967e2b84e479c55, type: 3}
+  - {fileID: 7184260967421414323, guid: 2c7ee4ef8c6788948a2c2d2c2486c742, type: 3}
+  <Collected>k__BackingField: 0
+--- !u!65 &515996851640432709
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2217651644371463766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 0.1}
+  m_Center: {x: -1, y: 1, z: 0}

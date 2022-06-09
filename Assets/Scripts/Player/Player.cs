@@ -5,10 +5,12 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _speedDecay;
+
+    [SerializeField] private float _leftBorder;
+    [SerializeField] private float _rightBorder;    
+
     [field: SerializeField] public bool IsFinish { get; private set; }
     [field: SerializeField] public bool LostControl { get; private set; }
-
-    public event UnityAction<Collider> _collision;
 
     private Rigidbody _rigidbody;
     //private Animator _animator;
@@ -37,6 +39,17 @@ public class Player : MonoBehaviour
         }
 
         transform.position += Vector3.forward * _speed * Time.fixedDeltaTime;
+
+        if (transform.position.x > _rightBorder)
+        {
+            transform.position = new Vector3(_rightBorder, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.x < _leftBorder)
+        {
+            transform.position = new Vector3(_leftBorder, transform.position.y, transform.position.z);
+        }
+
         //_animator.SetFloat("RunSpeed", _speed);
         SpeedDecay();
     }
@@ -55,7 +68,6 @@ public class Player : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Ground ground))
         {
             _speedDecay = ground.DecayParameter;
-            _collision?.Invoke(other);
         }
 
         if (other.gameObject.TryGetComponent(out Finish finish))
